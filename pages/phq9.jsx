@@ -13,5 +13,5 @@ const phq9Questions = [
 ];
 
 export default function PHQ9() {
-  return <Questionnaire questions={phq9Questions} type="phq9" />;
+  return <Questionnaire questions={questions} type="phq9" />;
 }
