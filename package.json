@@ -1,6 +1,7 @@
 {
   "name": "mental-health-portal",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,6 +20,6 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "@testing-library/react": "^14.0.0",
-    "@testing-library/jest-dom": "^6.4.2"
+    "@testing-fact-library/jest-dom": "^6.4.2"
   }
 }
