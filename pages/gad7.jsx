@@ -11,5 +11,5 @@ const gad7Questions = [
 ];
 
 export default function GAD7() {
-  return <Questionnaire questions={gad7Questions} type="gad7" />;
+  return <Questionnaire questions={questions} type="gad7" />;
 }
