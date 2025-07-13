@@ -1,21 +1,63 @@
-import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../lib/firebase';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { auth } from '../lib/firebase';
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 
 export default function Navbar() {
-  const handleLogin = async () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(auth, provider);
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('Google Login Error:', error.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Logout Error:', error.message);
     }
   };
 
   return (
-    <nav className="bg-blue-600 p-4">
-      <div className="container mx-auto flex justify-between">
-        <Link href="/" className="text-white font-bold">Home</Link>
-        <button onClick={handleLogin} className="text-white">Login with Google</button>
+    <nav className="bg-blue-600 text-white p-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" className="text-xl font-bold hover:text-blue-200">
+          Mental Health Portal
+        </Link>
+        <div className="space-x-4">
+          {user ? (
+            <>
+              <span className="text-sm">Welcome, {user.displayName || user.email}</span>
+              <button
+                onClick={handleLogout}
+                className="p-2 bg-red-500 rounded hover:bg-red-600"
+                aria-label="Logout"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={handleGoogleLogin}
+              className="p-2 bg-green-500 rounded hover:bg-green-600"
+              aria-label="Login with Google"
+            >
+              Login with Google
+            </button>
+          )}
+        </div>
       </div>
     </nav>
   );
