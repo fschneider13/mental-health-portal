@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Link from 'next/link'; // Added missing import
+import Link from 'next/link';
 import ConsentModal from '../components/ConsentModal';
 import Navbar from '../components/Navbar';
 
