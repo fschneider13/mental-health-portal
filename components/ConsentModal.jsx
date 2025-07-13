@@ -5,17 +5,18 @@ export default function ConsentModal({ onConsent }) {
         <h2 className="text-xl font-semibold mb-4">Consentimento</h2>
         <p className="mb-4">
           Este portal coleta dados para avaliar sua saúde mental. Seus dados são armazenados localmente ou, se autenticado, no Firebase, em conformidade com LGPD/GDPR. Leia nossa{' '}
-          <a href="/privacy" className="text-blue-500">
+          <Link href="/privacy" className="text-blue-500">
             Política de Privacidade
-          </a>{' '}
+          </Link>{' '}
           e{' '}
-          <a href="/terms" className="text-blue-500">
+          <Link href="/terms" className="text-blue-500">
             Termos de Uso
-          </a>.
+          </Link>.
         </p>
         <button
           onClick={onConsent}
           className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          aria-label="Aceitar consentimento"
         >
           Aceitar
         </button>
