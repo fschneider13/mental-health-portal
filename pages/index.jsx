@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ConsentModal from '../components/ConsentModal';
-import Navbar from '../components/Navbar';
 
 export default function Home() {
   const [showConsent, setShowConsent] = useState(true);
+  const [Navbar, setNavbar] = useState(null);
+
+  useEffect(() => {
+    setNavbar(() => require('../components/Navbar').default);
+  }, []);
 
   const handleConsent = () => {
     setShowConsent(false);
@@ -12,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
-      <Navbar />
+      {Navbar && <Navbar />}
       {showConsent && <ConsentModal onConsent={handleConsent} />}
       <div className="container mx-auto px-4 py-12 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Mental Health Portal</h1>
