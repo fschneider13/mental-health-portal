@@ -1,4 +1,4 @@
-import Questionnaire from '../components/Questionnaire';
+import Questionnaire from '../components/Questionnaire'; // Verify this import
 
 const questions = [
   { text: "Placeholder: Little interest or pleasure in doing things", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
