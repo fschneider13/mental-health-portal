@@ -7,28 +7,38 @@ export default function Navbar() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-    return () => unsubscribe();
+    if (auth) {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        setUser(user);
+      });
+      return () => unsubscribe();
+    }
   }, []);
 
   const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
-      console.error('Google Login Error:', error.message);
-      alert('Login failed: ' + error.message);
+    if (auth) {
+      const provider = new GoogleAuthProvider();
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (error) {
+        console.error('Google Login Error:', error.message);
+        alert('Login failed: ' + error.message);
+      }
+    } else {
+      alert('Authentication not initialized. Please refresh the page.');
     }
   };
 
   const handleLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error('Logout Error:', error.message);
-      alert('Logout failed: ' + error.message);
+    if (auth) {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.error('Logout Error:', error.message);
+        alert('Logout failed: ' + error.message);
+      }
+    } else {
+      alert('Authentication not initialized.');
     }
   };
 
