@@ -8,7 +8,6 @@ export default function Results() {
   const router = useRouter();
   const { type, score, category } = router.query;
 
-  // Fallback UI if query parameters are missing
   if (!type || !score || !category) {
     return (
       <div className="container mx-auto p-4">
