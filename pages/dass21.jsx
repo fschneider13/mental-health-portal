@@ -25,5 +25,5 @@ const dass21Questions = [
 ];
 
 export default function DASS21() {
-  return <Questionnaire questions={dass21Questions} type="dass21" />;
+  return <Questionnaire questions={questions} type="dass21" />;
 }
