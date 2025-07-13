@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Bar } from 'recharts';
 import { BarChart, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import jsPDF from 'jspdf';
-import Link from 'next/link';
+import Link from 'next/link'; // Ensure this is present
 
 export default function Results() {
   const router = useRouter();
