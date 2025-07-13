@@ -1,3 +1,5 @@
+import Link from 'next/link'; // Ensure this is present
+
 export default function ConsentModal({ onConsent }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
