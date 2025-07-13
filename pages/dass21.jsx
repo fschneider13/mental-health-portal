@@ -3,7 +3,6 @@ import Questionnaire from '../components/Questionnaire';
 const questions = [
   { text: "Placeholder: I found it hard to wind down", options: ["Did not apply to me at all", "Applied to me to some degree", "Applied to me to a considerable degree", "Applied to me very much"] },
   { text: "Placeholder: I was aware of dryness of my mouth", options: ["Did not apply to me at all", "Applied to me to some degree", "Applied to me to a considerable degree", "Applied to me very much"] },
-  // Add more placeholder questions to match DASS-21's 21 questions (7 depression, 7 anxiety, 7 stress)
   { text: "Placeholder: I couldn't seem to experience any positive feeling", options: ["Did not apply to me at all", "Applied to me to some degree", "Applied to me to a considerable degree", "Applied to me very much"] },
   { text: "Placeholder: I found it difficult to work up the initiative", options: ["Did not apply to me at all", "Applied to me to some degree", "Applied to me to a considerable degree", "Applied to me very much"] },
   { text: "Placeholder: I tended to over-react to situations", options: ["Did not apply to me at all", "Applied to me to some degree", "Applied to me to a considerable degree", "Applied to me very much"] },
