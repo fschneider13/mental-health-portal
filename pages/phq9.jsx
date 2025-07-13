@@ -3,7 +3,6 @@ import Questionnaire from '../components/Questionnaire';
 const questions = [
   { text: "Placeholder: Little interest or pleasure in doing things", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
   { text: "Placeholder: Feeling down, depressed, or hopeless", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-  // Add more placeholder questions to match PHQ-9's 9 questions
   { text: "Placeholder: Trouble falling or staying asleep", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
   { text: "Placeholder: Feeling tired or having little energy", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
   { text: "Placeholder: Poor appetite or overeating", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
