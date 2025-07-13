@@ -1,4 +1,5 @@
-import Questionnaire from '../components/Questionnaire'; // Verify this import
+import { useState, useEffect } from 'react';
+import Questionnaire from '../components/Questionnaire';
 
 const questions = [
   { text: "Placeholder: Feeling nervous, anxious, or on edge", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
@@ -11,5 +12,16 @@ const questions = [
 ];
 
 export default function GAD7() {
-  return <Questionnaire questions={questions} type="gad7" />;
+  const [Navbar, setNavbar] = useState(null);
+
+  useEffect(() => {
+    setNavbar(() => require('../components/Navbar').default);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
+      {Navbar && <Navbar />}
+      <Questionnaire questions={questions} type="gad7" />
+    </div>
+  );
 }

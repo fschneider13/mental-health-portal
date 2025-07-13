@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Questionnaire from '../components/Questionnaire';
 
 const questions = [
@@ -25,5 +26,16 @@ const questions = [
 ];
 
 export default function DASS21() {
-  return <Questionnaire questions={questions} type="dass21" />;
+  const [Navbar, setNavbar] = useState(null);
+
+  useEffect(() => {
+    setNavbar(() => require('../components/Navbar').default);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
+      {Navbar && <Navbar />}
+      <Questionnaire questions={questions} type="dass21" />
+    </div>
+  );
 }
