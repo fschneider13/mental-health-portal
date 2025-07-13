@@ -1,10 +1,15 @@
 import Questionnaire from '../components/Questionnaire';
 
-const questions = [
-  // Add official GAD7 questions here
-  // Example: { text: "Little interest or pleasure in doing things", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+const gad7Questions = [
+  { text: 'Feeling nervous, anxious or on edge', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Not being able to stop or control worrying', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Worrying too much about different things', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Trouble relaxing', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Being so restless that it is hard to sit still', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Becoming easily annoyed or irritable', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
+  { text: 'Feeling afraid as if something awful might happen', options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'] },
 ];
 
 export default function GAD7() {
-  return <Questionnaire questions={questions} type="gad7" />;
+  return <Questionnaire questions={gad7Questions} type="gad7" />;
 }
