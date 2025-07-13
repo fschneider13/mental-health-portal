@@ -6,7 +6,18 @@ import jsPDF from 'jspdf';
 export default function Results() {
   const router = useRouter();
   const { type, score, category } = router.query;
-  const data = [{ name: 'Score', value: score }];
+
+  // Return a fallback UI if query parameters are not available
+  if (!type || !score || !category) {
+    return (
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Results Unavailable</h1>
+        <p>Please complete a questionnaire to view results.</p>
+      </div>
+    );
+  }
+
+  const data = [{ name: 'Score', value: Number(score) }];
 
   const handleExportPDF = () => {
     const doc = new jsPDF();
@@ -37,4 +48,11 @@ export default function Results() {
       </button>
     </div>
   );
+}
+
+// Disable static generation for this page
+export async function getServerSideProps() {
+  return {
+    props: {}, // No props needed, as data comes from query parameters
+  };
 }
