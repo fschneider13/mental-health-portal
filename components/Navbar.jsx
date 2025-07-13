@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { auth } from '../lib/firebase';
+import { getAuthInstance } from '../lib/firebase';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
+  const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    if (auth) {
-      const unsubscribe = auth.onAuthStateChanged((user) => {
+    getAuthInstance().then((authInstance) => {
+      setAuth(authInstance);
+      const unsubscribe = authInstance.onAuthStateChanged((user) => {
         setUser(user);
       });
       return () => unsubscribe();
-    }
+    });
   }, []);
 
   const handleGoogleLogin = async () => {
