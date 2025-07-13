@@ -19,6 +19,7 @@ export default function Navbar() {
       await signInWithPopup(auth, provider);
     } catch (error) {
       console.error('Google Login Error:', error.message);
+      alert('Login failed: ' + error.message); // Notify user of failure
     }
   };
 
@@ -27,6 +28,7 @@ export default function Navbar() {
       await signOut(auth);
     } catch (error) {
       console.error('Logout Error:', error.message);
+      alert('Logout failed: ' + error.message);
     }
   };
 
