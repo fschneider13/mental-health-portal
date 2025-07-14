@@ -10,14 +10,18 @@ Created at https://github.com/fschneider13/mental-health-portal.
 Firebase Configuration:
 
 Set up a Firebase project at console.firebase.google.com.
-Enable Google Authentication.
-Add Firebase config as GitHub Secrets under Settings > Secrets and variables > Actions:
+Enable Google Authentication and add your app's domain under **Authorized domains** so login works locally and when deployed.
+Add Firebase config as GitHub Secrets under **Settings > Secrets and variables > Actions**:
 NEXT_PUBLIC_FIREBASE_API_KEY
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
 NEXT_PUBLIC_FIREBASE_PROJECT_ID
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
 NEXT_PUBLIC_FIREBASE_APP_ID
+
+Local Development:
+
+Copy `.env.example` to `.env` and provide the above Firebase values so the app can connect to your project when running `next dev`.
 
 Add Files:
 
