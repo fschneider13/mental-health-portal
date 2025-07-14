@@ -19,6 +19,10 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
 NEXT_PUBLIC_FIREBASE_APP_ID
 
+Local Testing:
+
+Copy .env.example to .env and add your Firebase values for local development.
+
 Add Files:
 
 Add all files via GitHub’s web interface to the main branch.
